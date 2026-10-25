@@ -109,8 +109,9 @@ body {
 }
 .hero-line {
   margin: 1.4rem 0 2rem;
-  max-width: 22rem;
+  max-width: 26rem;
   font-size: 1.15rem;
+  line-height: 1.65;
   color: var(--muted);
   animation: rise 1s 0.12s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }

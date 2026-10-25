@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>周晴 · 628 寝室</title>
-  <meta name="description" content="周晴的服装设计主场，以及马廉婕、田静、阳宗依林的 628 寝室官网。" />
+  <title>628 寝室</title>
+  <meta name="description" content="628 寝室官网：周晴、马廉婕、田静阳、宗依林 —— 一个房间，四种频率。" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -13,23 +13,22 @@
   <header class="topbar">
     <a class="mark" href="#top">628</a>
     <nav class="nav">
-      <a href="#atelier">周晴</a>
-      <a href="#room">寝室</a>
+      <a href="#room">室友</a>
+      <a href="#atelier">周晴角</a>
       <a href="#play">玩法</a>
-      <a href="#studio">建模</a>
+      <a href="#studio">档案</a>
     </nav>
   </header>
 
   <main id="top">
-    <!-- Hero: brand first, one composition -->
-    <section class="hero" aria-label="周晴">
+    <section class="hero" aria-label="628 寝室">
       <div class="hero-glow" aria-hidden="true"></div>
-      <p class="hero-kicker">Fashion Design · Dorm 628</p>
-      <h1 class="hero-brand">周晴</h1>
-      <p class="hero-line">用布料说话的人，住在 628。</p>
+      <p class="hero-kicker">Dorm · Four of Us</p>
+      <h1 class="hero-brand">628</h1>
+      <p class="hero-line">周晴 · 马廉婕 · 田静阳 · 宗依林<br />一个房间，四种频率。</p>
       <div class="hero-cta">
-        <a class="btn primary" href="#atelier">看她的主场</a>
-        <a class="btn ghost" href="#play">和室友玩一局</a>
+        <a class="btn primary" href="#room">认识室友</a>
+        <a class="btn ghost" href="#play">今晚玩一局</a>
       </div>
       <div class="hero-fabric" aria-hidden="true">
         <span class="swatch s1"></span>
@@ -39,17 +38,50 @@
       </div>
     </section>
 
+    <section id="room" class="section room">
+      <div class="section-head">
+        <h2>628 寝室四人组</h2>
+        <p>点谁看谁。宿舍官网的主角是整间房，不是某一个人。</p>
+      </div>
+      <div class="roster" role="list">
+        <button class="mate active" data-mate="zhou" role="listitem" type="button">
+          <span class="mate-role">服装设计</span>
+          <span class="mate-name">周晴</span>
+          <span class="mate-blurb">针线与灵感的那一角</span>
+        </button>
+        <button class="mate" data-mate="ma" role="listitem" type="button">
+          <span class="mate-role">黑暗料理 · 班主任传说</span>
+          <span class="mate-name">马廉婕</span>
+          <span class="mate-blurb">家里味道很野，规矩很严</span>
+        </button>
+        <button class="mate" data-mate="tian" role="listitem" type="button">
+          <span class="mate-role">年级第一</span>
+          <span class="mate-name">田静阳</span>
+          <span class="mate-blurb">成绩单上的绝对高地</span>
+        </button>
+        <button class="mate" data-mate="zong" role="listitem" type="button">
+          <span class="mate-role">养蛇人</span>
+          <span class="mate-name">宗依林</span>
+          <span class="mate-blurb">宿舍里有鳞片气息</span>
+        </button>
+      </div>
+      <div class="mate-panel" id="mate-panel" aria-live="polite">
+        <h3 id="mate-title">周晴</h3>
+        <p id="mate-body"></p>
+      </div>
+    </section>
+
     <section id="atelier" class="section atelier">
       <div class="section-head">
-        <h2>周晴的工作室</h2>
-        <p>服装设计不是把衣服画好看，是把人穿成一种态度。</p>
+        <h2>周晴的工作室一角</h2>
+        <p>她是 628 的一员，服装设计是她的主场——但整站仍是宿舍的。</p>
       </div>
       <div class="atelier-grid">
         <article class="feature-copy">
           <h3>她在做什么</h3>
           <p>
             剪裁、面料、廓形、情绪板——周晴把灵感钉在墙上，再一点点缝进现实。
-            这个站点是她的公开衣帽间：作品以后会挂上来，3D 建模也会住进「工作室」里。
+            这是宿舍里属于她的那一角：作品以后会挂上来，3D 建模也会慢慢住进来。
           </p>
           <ul class="tags" id="zhou-tags">
             <li data-tag="剪裁">剪裁</li>
@@ -69,39 +101,6 @@
           </div>
           <p class="stage-caption" id="fabric-caption">当前面料：默认丝绸感</p>
         </div>
-      </div>
-    </section>
-
-    <section id="room" class="section room">
-      <div class="section-head">
-        <h2>628 寝室四人组</h2>
-        <p>周晴 · 马廉婕 · 田静 · 阳宗依林 —— 一个房间，四种频率。</p>
-      </div>
-      <div class="roster" role="list">
-        <button class="mate active" data-mate="zhou" role="listitem" type="button">
-          <span class="mate-role">主理人 / 服装设计</span>
-          <span class="mate-name">周晴</span>
-          <span class="mate-blurb">针线与灵感的总控台</span>
-        </button>
-        <button class="mate" data-mate="ma" role="listitem" type="button">
-          <span class="mate-role">室友</span>
-          <span class="mate-name">马廉婕</span>
-          <span class="mate-blurb">气氛组常任理事</span>
-        </button>
-        <button class="mate" data-mate="tian" role="listitem" type="button">
-          <span class="mate-role">室友</span>
-          <span class="mate-name">田静</span>
-          <span class="mate-blurb">安静里藏着主意</span>
-        </button>
-        <button class="mate" data-mate="yang" role="listitem" type="button">
-          <span class="mate-role">室友</span>
-          <span class="mate-name">阳宗依林</span>
-          <span class="mate-blurb">名字很长，笑点不短</span>
-        </button>
-      </div>
-      <div class="mate-panel" id="mate-panel" aria-live="polite">
-        <h3 id="mate-title">周晴</h3>
-        <p id="mate-body"></p>
       </div>
     </section>
 
@@ -125,11 +124,11 @@
 
         <div class="play-block">
           <h3>室友默契测验</h3>
-          <p class="play-desc">一题定输赢：628 的夜谈话题通常是？</p>
+          <p class="play-desc">一题定输赢：628 夜谈最常提到的是？</p>
           <form id="quiz" class="quiz">
-            <label><input type="radio" name="q1" value="a" /> 明天穿什么</label>
-            <label><input type="radio" name="q1" value="b" /> 谁又熬夜了</label>
-            <label><input type="radio" name="q1" value="c" /> 周晴下一套设计</label>
+            <label><input type="radio" name="q1" value="a" /> 年级第一又刷了什么题</label>
+            <label><input type="radio" name="q1" value="b" /> 蛇今天吃了没</label>
+            <label><input type="radio" name="q1" value="c" /> 马妈妈黑暗料理传说</label>
             <label><input type="radio" name="q1" value="d" /> 以上全是，而且同时进行</label>
             <button class="btn ghost" type="submit">提交答案</button>
           </form>
@@ -159,27 +158,27 @@
 
     <section id="studio" class="section studio">
       <div class="section-head">
-        <h2>3D 工作室（预留）</h2>
-        <p>下一步给周晴挂服装建模：人台、面料模拟、成衣预览都会放这里。</p>
+        <h2>628 档案室（预留）</h2>
+        <p>以后放宿舍照片、夜谈语录、周晴的建模作品——四人份的记忆库。</p>
       </div>
       <div class="studio-slot">
         <div class="studio-frame">
           <div class="studio-grid" aria-hidden="true"></div>
-          <p class="studio-soon">MODEL VIEWPORT · COMING SOON</p>
-          <p class="studio-note">计划：Three.js 人台 + 面料参数面板 + 作品集导入</p>
+          <p class="studio-soon">DORM ARCHIVE · COMING SOON</p>
+          <p class="studio-note">计划：室友图墙 · 语录板 · 周晴 3D 人台</p>
         </div>
         <ul class="studio-roadmap">
-          <li>Phase 1 — 静态作品图墙</li>
-          <li>Phase 2 — 可旋转 3D 人台</li>
-          <li>Phase 3 — 面料/版型参数互动</li>
+          <li>Phase 1 — 四人照片墙</li>
+          <li>Phase 2 — 夜谈语录 / 梗百科</li>
+          <li>Phase 3 — 周晴服装建模入口</li>
         </ul>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>为周晴而建 · 628 寝室（周晴 / 马廉婕 / 田静 / 阳宗依林）</p>
-    <p class="tiny">粉丝向个人站，非商业用途</p>
+    <p>628 寝室官网 · 周晴 / 马廉婕 / 田静阳 / 宗依林</p>
+    <p class="tiny">宿舍向站点，非商业用途</p>
   </footer>
 
   <script src="js/app.js"></script>

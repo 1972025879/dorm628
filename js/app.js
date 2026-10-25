@@ -2,19 +2,19 @@
   const mates = {
     zhou: {
       title: "周晴",
-      body: "628 的主理人，服装设计在读。针脚比日程表更密，灵感板比寝室灯更亮。官网以她为品牌核心——因为本来就是为她做的。",
+      body: "628 的一员，服装设计在读。针脚比日程表更密，灵感板比寝室灯更亮。宿舍官网留给她一间工作室角，但整间房才是主角。",
     },
     ma: {
       title: "马廉婕",
-      body: "气氛组常任理事。谁加班谁开心、谁该被投喂，她通常第一个知道。转盘如果转到她，外卖大概会变成夜宵套餐。",
+      body: "她妈妈做的是黑暗料理——颜色可疑、味道传奇，室友听说过就怕。家里还有一位严格的高中班主任（规矩感拉满），所以她身上总带着一点「别闹」和一点「来尝尝这个」。",
     },
     tian: {
-      title: "田静",
-      body: "安静里藏着主意。不吵不闹，但关键时刻总能把话题掰回正轨（或者掰进更深的夜谈）。",
+      title: "田静阳",
+      body: "年级第一。卷王不必吵，成绩单会替她说话。夜谈里别人在吐槽，她可能刚刷完一套题——然后继续安静地坐在第一名的位置上。",
     },
-    yang: {
-      title: "阳宗依林",
-      body: "名字最长，笑点不短。628 的声音轨道上少不了她——从吐槽到打气，一站式服务。",
+    zong: {
+      title: "宗依林",
+      body: "养蛇的人。628 的空气里偶尔有鳞片气息：换垫材、看进食、讲冷知识。敢养蛇的人，通常也不怕宿舍里的其它突发状况。",
     },
   };
 
@@ -41,7 +41,6 @@
     },
   };
 
-  // Roommate panel
   const panelTitle = document.getElementById("mate-title");
   const panelBody = document.getElementById("mate-body");
   const mateButtons = document.querySelectorAll(".mate");
@@ -60,7 +59,6 @@
   });
   showMate("zhou");
 
-  // Fabric tags
   const dress = document.querySelector(".dress");
   const fabricCaption = document.getElementById("fabric-caption");
   document.querySelectorAll("#zhou-tags li").forEach((li) => {
@@ -75,8 +73,7 @@
     });
   });
 
-  // Wheel
-  const names = ["周晴", "马廉婕", "田静", "阳宗依林"];
+  const names = ["周晴", "马廉婕", "田静阳", "宗依林"];
   const colors = ["#e85d4c", "#1c1c1c", "#f0b7ae", "#5b7c6a"];
   const canvas = document.getElementById("wheel");
   const ctx = canvas.getContext("2d");
@@ -104,9 +101,9 @@
       ctx.translate(cx, cy);
       ctx.rotate(start + slice / 2);
       ctx.fillStyle = i === 1 ? "#f6f1e8" : "#141414";
-      ctx.font = "600 18px Droid Sans Fallback, DejaVu Sans, sans-serif";
+      ctx.font = "600 16px Droid Sans Fallback, DejaVu Sans, sans-serif";
       ctx.textAlign = "right";
-      ctx.fillText(name, r - 18, 6);
+      ctx.fillText(name, r - 16, 6);
       ctx.restore();
     });
     ctx.beginPath();
@@ -139,7 +136,6 @@
       } else {
         spinning = false;
         const slice = (Math.PI * 2) / names.length;
-        // Pointer sits at top (-PI/2). Map that angle back into slice index.
         const normalized =
           (((-angle - Math.PI / 2) % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
         const idx = Math.floor(normalized / slice) % names.length;
@@ -150,7 +146,6 @@
   }
   document.getElementById("spin-btn").addEventListener("click", spin);
 
-  // Quiz
   document.getElementById("quiz").addEventListener("submit", (e) => {
     e.preventDefault();
     const picked = new FormData(e.target).get("q1");
@@ -165,7 +160,6 @@
         : "也没错，但标准答案是：以上全是，而且同时进行。";
   });
 
-  // Mood board
   const board = document.getElementById("mood-board");
   const chips = document.querySelectorAll(".chip");
 
@@ -200,7 +194,6 @@
     board.classList.remove("has-items");
   });
 
-  // Soft stitch background
   const stitch = document.getElementById("stitch-canvas");
   const sctx = stitch.getContext("2d");
   function resizeStitch() {
