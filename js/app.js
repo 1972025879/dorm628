@@ -2,7 +2,7 @@
   const mates = {
     zhou: {
       title: "周晴",
-      body: "628 的一员，服装设计在读。针脚比日程表更密，灵感板比寝室灯更亮。宿舍官网留给她一间工作室角，但整间房才是主角。",
+      body: "628 的一员，服装设计在读。针脚比日程表更密，灵感板比寝室灯更亮——整间房才是主角，她是频率里的一拍。",
     },
     ma: {
       title: "马廉婕",
@@ -15,29 +15,6 @@
     zong: {
       title: "宗依林",
       body: "养蛇的人。628 的空气里偶尔有鳞片气息：换垫材、看进食、讲冷知识。敢养蛇的人，通常也不怕宿舍里的其它突发状况。",
-    },
-  };
-
-  const fabricMap = {
-    剪裁: {
-      fabric: "linear-gradient(145deg, #1c1c1c 0%, #3a3a3a 45%, #111 100%)",
-      caption: "当前面料：结构感黑呢",
-    },
-    面料: {
-      fabric: "linear-gradient(135deg, #f4c6c3 0%, #e8a99f 40%, #f7ebe4 100%)",
-      caption: "当前面料：亲肤粉绸",
-    },
-    廓形: {
-      fabric: "linear-gradient(160deg, #5b7c6a 0%, #7f9a88 50%, #dfe7e1 100%)",
-      caption: "当前面料：苔绿斜纹",
-    },
-    情绪板: {
-      fabric: "linear-gradient(120deg, #e85d4c 0%, #f0b7ae 50%, #c8b48a 100%)",
-      caption: "当前面料：情绪拼贴缎",
-    },
-    成衣: {
-      fabric: "linear-gradient(150deg, #f7f2ea 0%, #e6dccf 55%, #c8b48a 100%)",
-      caption: "当前面料：坯布到成衣",
     },
   };
 
@@ -58,20 +35,6 @@
     btn.addEventListener("click", () => showMate(btn.dataset.mate));
   });
   showMate("zhou");
-
-  const dress = document.querySelector(".dress");
-  const fabricCaption = document.getElementById("fabric-caption");
-  document.querySelectorAll("#zhou-tags li").forEach((li) => {
-    li.addEventListener("click", () => {
-      document.querySelectorAll("#zhou-tags li").forEach((x) => x.classList.remove("on"));
-      li.classList.add("on");
-      const conf = fabricMap[li.dataset.tag];
-      if (conf && dress) {
-        dress.style.background = conf.fabric;
-        fabricCaption.textContent = conf.caption;
-      }
-    });
-  });
 
   const names = ["周晴", "马廉婕", "田静阳", "宗依林"];
   const colors = ["#e85d4c", "#1c1c1c", "#f0b7ae", "#5b7c6a"];
