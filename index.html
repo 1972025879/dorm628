@@ -21,23 +21,13 @@
 
   <main id="top">
     <section class="hero" aria-label="628 寝室">
-      <img
-        class="hero-cover"
-        src="img/cover.jpg"
-        alt="628 寝室封面"
-        width="1600"
-        height="900"
-        fetchpriority="high"
-      />
-      <div class="hero-scrim" aria-hidden="true"></div>
-      <div class="hero-copy">
-        <p class="hero-kicker">Dorm · Four of Us</p>
-        <h1 class="hero-brand">628</h1>
-        <p class="hero-line">周晴 · 马廉婕 · 田静阳 · 宗依林<br />一个房间，四种频率。</p>
-        <div class="hero-cta">
-          <a class="btn primary" href="#room">认识室友</a>
-          <a class="btn ghost" href="#play">今晚玩一局</a>
-        </div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <p class="hero-kicker">Dorm · Four of Us</p>
+      <h1 class="hero-brand">628</h1>
+      <p class="hero-line">周晴 · 马廉婕 · 田静阳 · 宗依林<br />一个房间，四种频率。</p>
+      <div class="hero-cta">
+        <a class="btn primary" href="#room">认识室友</a>
+        <a class="btn ghost" href="#play">今晚玩一局</a>
       </div>
     </section>
 
@@ -48,9 +38,9 @@
       </div>
       <div class="roster" role="list">
         <button class="mate active" data-mate="zhou" role="listitem" type="button">
-          <span class="mate-role">服装设计</span>
+          <span class="mate-role">魔丸 · 天天发疯</span>
           <span class="mate-name">周晴</span>
-          <span class="mate-blurb">针线与灵感的那一角</span>
+          <span class="mate-blurb">宿舍不稳定因子</span>
         </button>
         <button class="mate" data-mate="ma" role="listitem" type="button">
           <span class="mate-role">黑暗料理 · 班主任传说</span>
@@ -105,6 +95,50 @@
           <p class="quiz-result" id="quiz-result"></p>
         </div>
 
+        <div class="play-block">
+          <h3>魔丸发疯机</h3>
+          <p class="play-desc">点一下，周晴今天又发什么疯。</p>
+          <button class="btn primary" id="chaos-btn" type="button">启动发疯</button>
+          <p class="game-out" id="chaos-out">待机中……魔丸尚未开机。</p>
+        </div>
+
+        <div class="play-block">
+          <h3>黑暗料理盲盒</h3>
+          <p class="play-desc">马妈妈出品，勇气自备。</p>
+          <button class="btn primary" id="food-btn" type="button">开盒</button>
+          <p class="game-out" id="food-out">盒子还没拆。</p>
+        </div>
+
+        <div class="play-block">
+          <h3>喂蛇手速</h3>
+          <p class="play-desc">5 秒内狂点「喂！」，帮宗依林投喂。</p>
+          <p class="game-stat"><span id="feed-timer">5.0</span>s · <span id="feed-count">0</span> 口</p>
+          <button class="btn primary" id="feed-btn" type="button">开始 / 喂！</button>
+          <p class="game-out" id="feed-out">蛇在等。</p>
+        </div>
+
+        <div class="play-block">
+          <h3>今晚值日抽签</h3>
+          <p class="play-desc">扫地 / 倒垃圾 / 关灯 / 收快递，一次抽清。</p>
+          <button class="btn primary" id="duty-btn" type="button">抽！</button>
+          <ul class="duty-list" id="duty-list" aria-live="polite"></ul>
+        </div>
+
+        <div class="play-block">
+          <h3>年级第一模拟器</h3>
+          <p class="play-desc">10 秒连点「刷题」，冲击田静阳浓度。</p>
+          <p class="game-stat"><span id="study-timer">10</span>s · <span id="study-count">0</span> 题</p>
+          <button class="btn primary" id="study-btn" type="button">开始刷题</button>
+          <p class="game-out" id="study-out">成绩单空白中。</p>
+        </div>
+
+        <div class="play-block">
+          <h3>628 真心话卡</h3>
+          <p class="play-desc">抽一张宿舍夜谈必答题。</p>
+          <button class="btn primary" id="truth-btn" type="button">抽卡</button>
+          <p class="game-out" id="truth-out">牌堆洗好了。</p>
+        </div>
+
         <div class="play-block wide">
           <h3>情绪板拼贴</h3>
           <p class="play-desc">拖下面的色块到画布，拼一版 628 今晚的 mood。</p>
@@ -128,21 +162,13 @@
 
     <section id="studio" class="section studio">
       <div class="section-head">
-        <h2>628 档案室（预留）</h2>
-        <p>以后放宿舍照片、夜谈语录——四人份的记忆库。</p>
+        <h2>628 档案室</h2>
+        <p>宿舍现场留档。更多照片以后继续往这里塞。</p>
       </div>
-      <div class="studio-slot">
-        <div class="studio-frame">
-          <div class="studio-grid" aria-hidden="true"></div>
-          <p class="studio-soon">DORM ARCHIVE · COMING SOON</p>
-          <p class="studio-note">计划：室友图墙 · 语录板 · 梗百科</p>
-        </div>
-        <ul class="studio-roadmap">
-          <li>Phase 1 — 四人照片墙</li>
-          <li>Phase 2 — 夜谈语录 / 梗百科</li>
-          <li>Phase 3 — 更多宿舍记忆</li>
-        </ul>
-      </div>
+      <figure class="archive-shot">
+        <img src="img/cover.jpg" alt="628 寝室合影" width="1600" height="900" loading="lazy" />
+        <figcaption>某次出门 · 三人蹲成一排刷手机（档案 No.001）</figcaption>
+      </figure>
     </section>
   </main>
 

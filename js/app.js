@@ -2,7 +2,7 @@
   const mates = {
     zhou: {
       title: "周晴",
-      body: "628 的一员，服装设计在读。针脚比日程表更密，灵感板比寝室灯更亮——整间房才是主角，她是频率里的一拍。",
+      body: "人设大概是魔丸：天天发疯，电波不稳定，宿舍的突发状况制造机。别问为什么，问就是今天又开始了。",
     },
     ma: {
       title: "马廉婕",
@@ -121,6 +121,145 @@
       picked === "d"
         ? "满分。你懂 628。"
         : "也没错，但标准答案是：以上全是，而且同时进行。";
+  });
+
+  const chaosLines = [
+    "突然宣布要连夜改头像，连改十七版。",
+    "对着空气发表 40 分钟演讲，主题未知。",
+    "把「我没事」说了八遍，明显有事。",
+    "半夜起来唱歌，音准随缘。",
+    "宣布退学三分钟后又宣布回去卷。",
+    "和充电器吵架，最后充电器赢了。",
+    "把所有人拉进一个只有她懂的梗局。",
+    "开始复读同一句话直到有人求饶。",
+    "情绪过山车：开心→崩溃→狂笑→睡觉。",
+    "魔丸已上线，宿舍防御等级升至红色。",
+  ];
+  document.getElementById("chaos-btn").addEventListener("click", () => {
+    const line = chaosLines[Math.floor(Math.random() * chaosLines.length)];
+    document.getElementById("chaos-out").textContent = `周晴今日发作：${line}`;
+  });
+
+  const foods = [
+    "紫黑色神秘汤 —— 建议先拍照再喝",
+    "甜咸交战炒饭 —— 谁赢谁知道",
+    "造型像艺术品的凉菜 —— 味道是另一门课",
+    "颜色过于自信的炖菜 —— 勇气 +3",
+    "名字听起来很健康的黑暗甜点",
+    "「尝尝嘛不贵」特供 —— 传说级",
+    "班主任同款严格口味：偏咸，不许挑食",
+    "马妈妈惊喜拼盘：每一口都是盲盒",
+  ];
+  document.getElementById("food-btn").addEventListener("click", () => {
+    const food = foods[Math.floor(Math.random() * foods.length)];
+    document.getElementById("food-out").textContent = `开出：${food}`;
+  });
+
+  const feedBtn = document.getElementById("feed-btn");
+  const feedTimer = document.getElementById("feed-timer");
+  const feedCount = document.getElementById("feed-count");
+  const feedOut = document.getElementById("feed-out");
+  let feeding = false;
+  let feedScore = 0;
+  let feedLeft = 5;
+
+  feedBtn.addEventListener("click", () => {
+    if (!feeding) {
+      feeding = true;
+      feedScore = 0;
+      feedLeft = 5;
+      feedCount.textContent = "0";
+      feedOut.textContent = "快喂！蛇醒了！";
+      feedBtn.textContent = "喂！";
+      const t0 = performance.now();
+      const tick = (now) => {
+        feedLeft = Math.max(0, 5 - (now - t0) / 1000);
+        feedTimer.textContent = feedLeft.toFixed(1);
+        if (feedLeft > 0) {
+          requestAnimationFrame(tick);
+        } else {
+          feeding = false;
+          feedBtn.textContent = "再喂一轮";
+          let rank = "蛇还在看你。";
+          if (feedScore >= 40) rank = "宗依林点头：投喂达人。";
+          else if (feedScore >= 20) rank = "蛇吃饱了，宿舍安全。";
+          else if (feedScore >= 8) rank = "勉强够塞牙缝。";
+          else rank = "蛇：就这？";
+          feedOut.textContent = `${feedScore} 口。${rank}`;
+        }
+      };
+      requestAnimationFrame(tick);
+      return;
+    }
+    feedScore += 1;
+    feedCount.textContent = String(feedScore);
+  });
+
+  const duties = ["扫地", "倒垃圾", "关灯锁门", "收快递"];
+  document.getElementById("duty-btn").addEventListener("click", () => {
+    const pool = [...names];
+    for (let i = pool.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+    const list = document.getElementById("duty-list");
+    list.innerHTML = duties
+      .map((d, i) => `<li><strong>${d}</strong> —— ${pool[i]}</li>`)
+      .join("");
+  });
+
+  const studyBtn = document.getElementById("study-btn");
+  const studyTimer = document.getElementById("study-timer");
+  const studyCount = document.getElementById("study-count");
+  const studyOut = document.getElementById("study-out");
+  let studying = false;
+  let studyScore = 0;
+
+  studyBtn.addEventListener("click", () => {
+    if (!studying) {
+      studying = true;
+      studyScore = 0;
+      studyCount.textContent = "0";
+      studyOut.textContent = "刷！刷！刷！";
+      studyBtn.textContent = "刷题！";
+      const t0 = performance.now();
+      const tick = (now) => {
+        const left = Math.max(0, 10 - (now - t0) / 1000);
+        studyTimer.textContent = String(Math.ceil(left));
+        if (left > 0) {
+          requestAnimationFrame(tick);
+        } else {
+          studying = false;
+          studyBtn.textContent = "再冲一波";
+          let line = "还差田静阳一个光年。";
+          if (studyScore >= 80) line = "疑似年级第一附体。";
+          else if (studyScore >= 45) line = "绩点发光中。";
+          else if (studyScore >= 20) line = "及格线附近徘徊。";
+          studyOut.textContent = `${studyScore} 题。${line}`;
+        }
+      };
+      requestAnimationFrame(tick);
+      return;
+    }
+    studyScore += 1;
+    studyCount.textContent = String(studyScore);
+  });
+
+  const truths = [
+    "上周最后悔的一件事是什么？",
+    "宿舍里谁最像班主任？",
+    "如果只能留一个人值班，你会投谁？",
+    "黑暗料理你敢不敢试一口？",
+    "周晴发疯时你第一反应是？",
+    "蛇如果会说话，它会吐槽谁？",
+    "你最想删掉的一条夜谈聊天记录？",
+    "考试周谁最先崩溃？",
+    "外卖迟到怪谁比较合理？",
+    "628 的群名该叫什么？",
+  ];
+  document.getElementById("truth-btn").addEventListener("click", () => {
+    const q = truths[Math.floor(Math.random() * truths.length)];
+    document.getElementById("truth-out").textContent = q;
   });
 
   const board = document.getElementById("mood-board");
